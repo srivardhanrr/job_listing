@@ -270,34 +270,34 @@
 
         <!-- Search Bar -->
         <div class="search-bar">
-            <div class="search-container">
-                <div class="menu-icons">
-                    ☰
-                    <a href="#" class="job-alerts">Job Alerts</a>
-                </div>
-                <div class="search-inputs">
-                    <select name="category" class="search-select">
-                        <option value="">Doctor Specialty ▾</option>
-                        {% for category in categories %}
-                            <option value="{{ category.slug }}"
-                                    {% if current_filters.category == category.slug %}selected{% endif %}>
-                                {{ category.name }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                    <select name="state" class="search-select">
-                        <option value="">Choose a State ▾</option>
-                        {% for state in states %}
-                            <option value="{{ state }}"
-                                    {% if current_filters.state == state %}selected{% endif %}>
-                                {{ state }}
-                            </option>
-                        {% endfor %}
-                    </select>
-                    <button type="submit" class="search-button">Search</button>
-                </div>
-            </div>
+    <div class="search-container">
+        <div class="menu-icons">
+            ☰
+            <a href="#" class="job-alerts">Job Alerts</a>
         </div>
+        <form method="GET" class="search-inputs" id="searchForm">
+            <select name="doctor_specialty" class="search-select" id="doctorSpecialty">
+                <option value="">Doctor Specialty ▾</option>
+                {% for category in categories %}
+                    <option value="{{ category.slug }}" 
+                            {% if current_filters.category == category.slug %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+            <select name="state" class="search-select" id="stateSelect">
+                <option value="">Choose a State ▾</option>
+                {% for state in states %}
+                    <option value="{{ state }}" 
+                            {% if current_filters.state == state %}selected{% endif %}>
+                        {{ state }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="search-button">Search</button>
+        </form>
+    </div>
+</div>
     <!-- Info Text -->
         <div class="info-text">
             Search results may not reflect all available positions. If you don't see your location,
@@ -378,4 +378,36 @@
         {% endif %}
     </div>
 </body>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('searchForm');
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const doctorSpecialty = document.getElementById('doctorSpecialty').value;
+        const state = document.getElementById('stateSelect').value;
+        
+        let searchParams = new URLSearchParams(window.location.search);
+        
+        if (doctorSpecialty) {
+            searchParams.set('category', doctorSpecialty);
+        } else {
+            searchParams.delete('category');
+        }
+        
+        if (state) {
+            searchParams.set('state', state);
+        } else {
+            searchParams.delete('state');
+        }
+        
+        // Reset to page 1 when searching
+        searchParams.delete('page');
+        
+        const newUrl = window.location.pathname + '?' + searchParams.toString();
+        window.location.href = newUrl;
+    });
+});
+</script>
 </html>
