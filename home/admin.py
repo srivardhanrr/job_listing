@@ -10,12 +10,10 @@ class CategoryAdmin(admin.ModelAdmin):
     list_editable = ('is_active',)
     date_hierarchy = 'created_at'
 
+
 @admin.register(JobListing)
 class JobListingAdmin(admin.ModelAdmin):
-    list_display = ('title', 'category', 'location_city', 'location_state', 
-                   'job_type', 'is_active', 'created_at')
-    list_filter = ('category', 'job_type', 'is_active', 'location_state')
-    search_fields = ('title', 'description', 'location_city')
-    list_editable = ('is_active',)
-    date_hierarchy = 'created_at'
-    autocomplete_fields = ['category']
+    list_display = ('title', 'category', 'location_state', 'featured', 'is_active', 'created_at')
+    list_filter = ('featured', 'is_active', 'category', 'location_state')
+    search_fields = ('title', 'description')
+    list_editable = ('featured', 'is_active')

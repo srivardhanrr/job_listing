@@ -42,15 +42,16 @@ class JobListing(models.Model):
     location_city = models.CharField(max_length=100)
     location_state = models.CharField(max_length=2)  # US state abbreviation
     job_type = models.CharField(max_length=20, choices=JOB_TYPE_CHOICES)
-    description = models.TextField()
+    description = models.TextField(help_text="Enter each bullet point on a new line with a leading hyphen (-)")
     salary_range = models.CharField(max_length=100, blank=True)
     application_url = models.URLField(blank=True)
+    featured = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['-created_at']
+        ordering = ['-featured', '-created_at']
 
     def __str__(self):
         return f"{self.title} - {self.location_city}, {self.location_state}"
@@ -60,3 +61,7 @@ class JobListing(models.Model):
 
     def get_category_icon(self):
         return self.category.icon
+
+    def get_description_points(self):
+        points = [point.strip('- ') for point in self.description.split('\n') if point.strip('- ')]
+        return points
