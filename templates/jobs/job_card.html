@@ -16,13 +16,20 @@
         </div>
     </div>
     <div class="card-footer">
-        <a href="{{ job.application_url }}" class="see-more" style="color: {{ job.category.color_code }}">
-            See more...
-        </a>
-        <a href="{{ job.application_url }}" class="apply-button"
-           style="--button-color: {{ job.category.color_code }}">
-            APPLY NOW
-        </a>
+        <a href="{{ job.application_url }}" 
+       class="see-more" 
+       style="color: {{ job.category.color_code }}"
+       target="_blank" 
+       rel="noopener noreferrer">
+        See more...
+    </a>
+       <a href="{{ job.application_url }}" 
+       class="apply-button"
+       style="--button-color: {{ job.category.color_code }}"
+       target="_blank" 
+       rel="noopener noreferrer">
+        APPLY NOW
+    </a>
     </div>
 </div>
 
