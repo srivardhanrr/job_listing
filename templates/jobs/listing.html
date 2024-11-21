@@ -1,0 +1,381 @@
+<!-- templates/jobs/listing.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Current OD & MD Job Opportunities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header Styles */
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+        }
+
+        .header .subtitle {
+            color: #ff6b00;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .start-applying {
+            background: #00a0c6;
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        /* Map Section */
+        .map-section {
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .map-section img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* Search Bar */
+        .search-bar {
+            background: #00a0c6;
+            padding: 15px 0;
+            margin-bottom: 30px;
+        }
+
+        .search-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .menu-icons {
+            display: flex;
+            gap: 10px;
+            color: white;
+        }
+
+        .job-alerts {
+            color: white;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+
+        .search-inputs {
+            display: flex;
+            flex-grow: 1;
+            gap: 15px;
+        }
+
+        .search-select {
+            background: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 4px;
+            min-width: 200px;
+        }
+
+        .search-button {
+            background: #ff6b00;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        /* Job Sections */
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        /* Job Card */
+        .job-card {
+            border: 2px solid;
+            border-radius: 10px;
+            padding: 20px;
+            background: white;
+        }
+
+        .job-card.blue {
+            border-color: #00a0c6;
+        }
+
+        .job-card.orange {
+            border-color: #ff6b00;
+        }
+
+        .job-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .job-card.blue h3 {
+            color: #00a0c6;
+        }
+
+        .job-card.orange h3 {
+            color: #ff6b00;
+        }
+
+        .job-meta {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .job-details {
+            margin: 15px 0;
+        }
+
+        .job-details ul {
+            list-style: none;
+            margin-bottom: 15px;
+        }
+
+        .job-details li {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 5px;
+        }
+
+        .see-more {
+            color: inherit;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .apply-button {
+            float: right;
+            padding: 8px 20px;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .job-card.blue .apply-button {
+            background: #00a0c6;
+        }
+
+        .job-card.orange .apply-button {
+            background: #ff6b00;
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .pagination span, .pagination a {
+            display: inline-block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            text-align: center;
+            border: 1px solid #00a0c6;
+            border-radius: 50%;
+            color: #00a0c6;
+            text-decoration: none;
+        }
+
+        .pagination span.current {
+            background: #00a0c6;
+            color: white;
+        }
+
+        /* Info Text */
+        .info-text {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .info-text a {
+            color: #00a0c6;
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .search-container {
+                flex-direction: column;
+            }
+
+            .search-inputs {
+                flex-direction: column;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <h1>Current OD & MD Job Opportunities</h1>
+            <div class="subtitle">THROUGHOUT THE USA + CANADA</div>
+            <a href="#" class="start-applying">Start Applying ↓</a>
+        </div>
+
+        <!-- Map Section -->
+        <div class="map-section">
+            <img src="/api/placeholder/800/400" alt="USA Map with Job Locations" />
+        </div>
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <div class="search-container">
+                <div class="menu-icons">
+                    ☰
+                    <a href="#" class="job-alerts">Job Alerts</a>
+                </div>
+                <div class="search-inputs">
+                    <select name="category" class="search-select">
+                        <option value="">Doctor Specialty ▾</option>
+                        {% for category in categories %}
+                            <option value="{{ category.slug }}"
+                                    {% if current_filters.category == category.slug %}selected{% endif %}>
+                                {{ category.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <select name="state" class="search-select">
+                        <option value="">Choose a State ▾</option>
+                        {% for state in states %}
+                            <option value="{{ state }}"
+                                    {% if current_filters.state == state %}selected{% endif %}>
+                                {{ state }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit" class="search-button">Search</button>
+                </div>
+            </div>
+        </div>
+    <!-- Info Text -->
+        <div class="info-text">
+            Search results may not reflect all available positions. If you don't see your location,
+            please <a href="#">contact us</a> directly to see more job listings.
+        </div>
+
+        <!-- Featured Hot Jobs -->
+        <h2 class="section-title">Featured Hot Jobs</h2>
+        <div class="jobs-grid">
+            {% for job in jobs %}
+                {% if forloop.counter <= 2 %}
+                    <div class="job-card {% if job.category.name == 'Ophthalmologist' %}blue{% else %}orange{% endif %}">
+                        <h3>{{ job.title }}</h3>
+                        <div class="job-meta">
+                            📍 {{ job.location_city }}, {{ job.location_state }} • 
+                            🕒 Full-time • 
+                            💲 {% if job.salary_range %}{{ job.salary_range }}{% else %}Negotiable{% endif %}
+                        </div>
+                        <p class="job-meta">
+                            {{ job.get_category_icon }} {{ job.category.name }}
+                        </p>
+                        <div class="job-details">
+                            <ul>
+                                <li>Very strong compensation structure</li>
+                                <li>4 days a week</li>
+                                <li>See 35-45 patients daily</li>
+                                <li>Medical, dental & vision</li>
+                            </ul>
+                            <a href="#" class="see-more">See more...</a>
+                            <a href="{{ job.application_url }}" class="apply-button">APPLY NOW</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- New Hot Jobs -->
+        <h2 class="section-title">New Hot Jobs</h2>
+        <div class="jobs-grid">
+            {% for job in jobs %}
+                {% if forloop.counter > 2 %}
+                    <div class="job-card {% if job.category.name == 'Ophthalmologist' %}blue{% else %}orange{% endif %}">
+                        <h3>{{ job.title }}</h3>
+                        <div class="job-meta">
+                            📍 {{ job.location_city }}, {{ job.location_state }} • 
+                            🕒 Full-time • 
+                            💲 {% if job.salary_range %}{{ job.salary_range }}{% else %}Negotiable{% endif %}
+                        </div>
+                        <p class="job-meta">
+                            {{ job.get_category_icon }} {{ job.category.name }}
+                        </p>
+                        <div class="job-details">
+                            <ul>
+                                <li>Very strong compensation structure</li>
+                                <li>4 days a week</li>
+                                <li>See 35-45 patients daily</li>
+                                <li>Medical, dental & vision</li>
+                            </ul>
+                            <a href="#" class="see-more">See more...</a>
+                            <a href="{{ job.application_url }}" class="apply-button">APPLY NOW</a>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        <!-- Pagination -->
+        {% if jobs.has_other_pages %}
+        <div class="pagination">
+            {% for num in jobs.paginator.page_range %}
+                {% if jobs.number == num %}
+                    <span class="current">{{ num }}</span>
+                {% else %}
+                    <a href="?page={{ num }}{% if current_filters.category %}&category={{ current_filters.category }}{% endif %}{% if current_filters.state %}&state={{ current_filters.state }}{% endif %}">{{ num }}</a>
+                {% endif %}
+            {% endfor %}
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
