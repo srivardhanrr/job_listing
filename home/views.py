@@ -3,8 +3,9 @@ from django.shortcuts import render
 from django.core.paginator import Paginator
 from django.db.models import Q
 from .models import JobListing, Category
+from django.views.decorators.clickjacking import xframe_options_exempt
 
-
+@xframe_options_exempt
 def job_listings(request):
     # Get filter parameters
     category_slug = request.GET.get('category')
