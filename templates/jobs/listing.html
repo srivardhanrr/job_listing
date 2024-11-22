@@ -510,6 +510,7 @@
     </style>
 </head>
 <body>
+{#    {% include 'jobs/header.html' %}#}
 <div class="container">
     <!-- Header -->
     <div class="header">
@@ -617,6 +618,7 @@
         </div>
     {% endif %}
 </div>
+{#{% include 'jobs/footer.html' %}#}
 </body>
 
 <script>
@@ -666,6 +668,26 @@
         const params = new URLSearchParams(formData);
         params.append('view', currentView);
         window.location.href = `${window.location.pathname}?${params.toString()}`;
+    });
+</script>
+<script>
+    function sendHeight() {
+        const height = document.documentElement.scrollHeight;
+        window.parent.postMessage({
+            height: height
+        }, '*');
+    }
+
+    // Send height on load and any content changes
+    window.addEventListener('load', sendHeight);
+    window.addEventListener('resize', sendHeight);
+
+    // For dynamic content changes
+    const observer = new MutationObserver(sendHeight);
+    observer.observe(document.body, {
+        subtree: true,
+        childList: true,
+        attributes: true
     });
 </script>
 </html>

@@ -105,19 +105,21 @@
     {#    <h2 class="section-title">Featured Hot Jobs</h2>#}
     <div class="scroll-container">
         {% for job in featured_jobs %}
-            <div class="featured-card" style="--card-color: {{ job.category.color_code }}">
-                <h3>{{ job.title }}</h3>
-                <span class="location">📍 {{ job.location_city }}, {{ job.location_state }}</span>
-                <ul>
-                    {% for point in job.get_description_points %}
-                        <li>{{ point }}</li>
-                    {% endfor %}
-                </ul>
-                <a href="{{ job.application_url }}" class="apply-button" target="_blank"
-                   rel="noopener noreferrer">
-                    APPLY NOW
-                </a>
-            </div>
+                {% include "jobs/job_card.html" with job=job %}
+{#            #}
+{#            <div class="featured-card" style="--card-color: {{ job.category.color_code }}">#}
+{#                <h3>{{ job.title }}</h3>#}
+{#                <span class="location">📍 {{ job.location_city }}, {{ job.location_state }}</span>#}
+{#                <ul>#}
+{#                    {% for point in job.get_description_points %}#}
+{#                        <li>{{ point }}</li>#}
+{#                    {% endfor %}#}
+{#                </ul>#}
+{#                <a href="{{ job.application_url }}" class="apply-button" target="_blank"#}
+{#                   rel="noopener noreferrer">#}
+{#                    APPLY NOW#}
+{#                </a>#}
+{#            </div>#}
         {% endfor %}
     </div>
 </section>
