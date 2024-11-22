@@ -12,11 +12,11 @@
         * {
             margin: 0;
             padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
+        {#box-sizing: border-box;#} font-family: Arial, sans-serif;
         }
 
         body {
+            margin-top: 50px;
             background: #fff;
             line-height: 1.6;
         }
@@ -29,79 +29,79 @@
 
         /* Header Styles */
         .header {
-    text-align: center;
-    padding: 40px 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
+            text-align: center;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-.header h1 {
-    font-size: clamp(32px, 5vw, 50px); /* Responsive font size */
-    font-weight: bold;
-    margin-bottom: 15px;
-    color: #333;
-    line-height: 1.2;
-}
+        .header h1 {
+            font-size: clamp(32px, 5vw, 50px); /* Responsive font size */
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #333;
+            line-height: 1.2;
+        }
 
-.subtitle {
-    font-size: clamp(16px, 2.5vw, 20px);
-    color: #ff6b00;
-    font-weight: bold;
-    margin-bottom: 30px;
-    letter-spacing: 1px;
-}
+        .subtitle {
+            font-size: clamp(16px, 2.5vw, 20px);
+            color: #ff6b00;
+            font-weight: bold;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
+        }
 
-.start-applying {
-    display: inline-block;
-    background-color: #00a0c6;
-    color: white;
-    font-size: clamp(16px, 2vw, 18px);
-    font-weight: bold;
-    padding: 15px 40px;
-    border-radius: 50px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border: 2px solid #00a0c6;
-    min-width: 200px;
-    text-transform: uppercase;
-}
+        .start-applying {
+            display: inline-block;
+            background-color: #00a0c6;
+            color: white;
+            font-size: clamp(16px, 2vw, 18px);
+            font-weight: bold;
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 2px solid #00a0c6;
+            min-width: 200px;
+            text-transform: uppercase;
+        }
 
-.start-applying:hover {
-    background-color: transparent;
-    color: #00a0c6;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0, 160, 198, 0.3);
-}
+        .start-applying:hover {
+            background-color: transparent;
+            color: #00a0c6;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 160, 198, 0.3);
+        }
 
-.start-applying::after {
-    content: "↓";
-    margin-left: 8px;
-    display: inline-block;
-    transition: transform 0.3s ease;
-}
+        .start-applying::after {
+            content: "↓";
+            margin-left: 8px;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
 
-.start-applying:hover::after {
-    transform: translateY(3px);
-}
+        .start-applying:hover::after {
+            transform: translateY(3px);
+        }
 
-/* Mobile Styles */
-@media (max-width: 768px) {
-    .header {
-        padding: 30px 15px;
-    }
+        /* Mobile Styles */
+        @media (max-width: 768px) {
+            .header {
+                padding: 30px 15px;
+            }
 
-    .start-applying {
-        padding: 15px 30px;
-        width: 90%;  /* Make button wider on mobile */
-        max-width: 300px;
-    }
-}
+            .start-applying {
+                padding: 15px 30px;
+                width: 90%; /* Make button wider on mobile */
+                max-width: 300px;
+            }
+        }
 
-@media (max-width: 480px) {
-    .header {
-        padding: 20px 10px;
-    }
-}
+        @media (max-width: 480px) {
+            .header {
+                padding: 20px 10px;
+            }
+        }
 
         /* Map Section */
         .map-section {
@@ -116,7 +116,7 @@
 
         .search-bar {
             background-color: #00a0c6;
-            border-radius: 10px;
+            {#border-radius: 10px;#}
             padding: 15px 0;
             width: 100%;
         }
@@ -226,16 +226,15 @@
 
         .view-button {
             background: transparent;
-            border: 2px solid white;
-            color: white;
-            padding: 8px 15px;
-            border-radius: 25px;
+            border: none;
+        {#color: white;#} padding: 8px 15px;
+            border-radius: 5px;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
         .view-button.active {
-            background: white;
+            background: #ffd600;
             color: #00a0c6;
         }
 
@@ -275,8 +274,6 @@
                 grid-template-columns: 1fr;
             }
         }
-
-
 
 
         .jobs-grid {
@@ -420,26 +417,26 @@
 
         .view-button {
             background: transparent;
-            border: 2px solid white;
-            width: 35px;
+        {#border: 2px solid white;#} width: 35px;
             height: 35px;
-            border-radius: 50%;
-            display: flex;
+        {#border-radius: 50%;#} display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
             transition: all 0.3s ease;
         }
 
-        .view-button svg {
-            width: 16px;
-            height: 16px;
-            fill: white;
-        }
+        {#.view-button svg {#}
+        {#    width: 16px;#}
+        {#    height: 16px;#}
+        {#    fill: white;#}
+        {
+        #}#}
 
-        .view-button.active {
-            background: white;
-        }
+        {#.view-button.active {#}
+        {#    background: white;#}
+        {
+        #}#}
 
         .view-button.active svg {
             fill: #00a0c6;
@@ -449,9 +446,10 @@
             background: rgba(255, 255, 255, 0.1);
         }
 
-        .view-button.active:hover {
-            background: white;
-        }
+        {#.view-button.active:hover {#}
+        {#    background: white;#}
+        {
+        #}#}
 
         .job-alerts {
             background-color: transparent;
@@ -510,39 +508,39 @@
     </style>
 </head>
 <body>
-{#    {% include 'jobs/header.html' %}#}
+{% include 'jobs/header.html' %}
 <div class="container">
     <!-- Header -->
     <div class="header">
-    <h1>Current OD & MD Job Opportunities</h1>
-    <div class="subtitle">THROUGHOUT THE USA + CANADA</div>
-    <a href="#" class="start-applying">Start Applying</a>
-</div>
+        <h1>Current OD & MD Job Opportunities</h1>
+        <div class="subtitle">THROUGHOUT THE USA + CANADA</div>
+        <a href="#" class="start-applying">Start Applying</a>
+    </div>
 
     <div style="max-width:780px;margin:auto;">
         <div id="map"></div>
     </div>
-
+</div>
     <!-- Search Bar -->
     <div class="search-bar">
         <div class="search-container">
             <div class="menu-section">
                 <div class="view-controls">
 
-                <button type="button"
-                        onclick="setView('grid')"
-                        class="view-button {% if view_type == 'grid' %}active{% endif %}"
-                        title="Grid View">
-                    <i class="fas fa-th"></i>
-                </button>
+                    <button type="button"
+                            onclick="setView('grid')"
+                            class="view-button {% if view_type == 'grid' %}active{% endif %}"
+                            title="Grid View">
+                        <img style="width: 30px" src="{% static 'assets/grid-icon.png' %}"/>
+                    </button>
 
-                <!-- List View Button -->
-                <button type="button"
-                        onclick="setView('list')"
-                        class="view-button {% if view_type == 'list' %}active{% endif %}"
-                        title="List View">
-                    <i class="fas fa-list"></i>
-                </button>
+                    <!-- List View Button -->
+                    <button type="button"
+                            onclick="setView('list')"
+                            class="view-button {% if view_type == 'list' %}active{% endif %}"
+                            title="List View">
+                        <img style="width: 30px" src="{% static 'assets/list-icon.png' %}"/>
+                    </button>
                 </div>
                 <a href="#" class="job-alerts">Job Alerts</a>
             </div>
@@ -570,7 +568,7 @@
             </form>
         </div>
     </div>
-
+<div class="container">
     <!-- Info Text -->
     <div class="info-text">
         Search results may not reflect all available positions. If you don't see your location,
@@ -612,13 +610,14 @@
 
 
 
+
                             {{ num }}{% if current_filters.category %}&category={{ current_filters.category }}{% endif %}{% if current_filters.state %}&state={{ current_filters.state }}{% endif %}">{{ num }}</a>
                 {% endif %}
             {% endfor %}
         </div>
     {% endif %}
 </div>
-{#{% include 'jobs/footer.html' %}#}
+{% include 'jobs/footer.html' %}
 </body>
 
 <script>

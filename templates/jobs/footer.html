@@ -1,45 +1,40 @@
+{% load static %}
 <style>
 .site-footer {
-    background-color: #000;
-    padding: 60px 30px 30px;
-    border-radius: 40px 40px 0 0;
+    background: #000;
     color: white;
+    padding: 60px 30px 30px;
+    border-radius: 200px 200px 0 0;
 }
 
 .footer-container {
-    max-width: 1400px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
-/* Top section with CTA */
+.top-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin-bottom: 60px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
 .footer-cta {
     display: flex;
     align-items: center;
-    gap: 40px;
-    margin-bottom: 80px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 60px;
+    gap: 20px;
 }
 
-.company-name {
-    font-size: 18px;
-    line-height: 1.2;
-}
-
-.cta-content {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    flex-grow: 1;
-}
-
-.cta-content h2 {
+.footer-cta h2 {
     font-size: 42px;
     margin: 0;
-    font-weight: 500;
+    color: white;
 }
 
-.get-started-btn {
+.get-started {
     display: flex;
     align-items: center;
     gap: 10px;
@@ -48,85 +43,105 @@
     font-size: 20px;
 }
 
-.get-started-btn .arrow {
+.get-started span {
     background: #00a0c6;
-    width: 36px;
-    height: 36px;
+    width: 35px;
+    height: 35px;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
 }
 
-/* Main footer sections */
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 60px;
+/* Main Navigation Section */
+.footer-nav-section {
+    display: flex;
+    justify-content: space-around;
     margin-bottom: 60px;
 }
 
-.footer-section h3 {
-    color: #666;
-    font-size: 20px;
-    margin-bottom: 30px;
-    font-weight: normal;
+.footer-nav-section > div {
+    flex: 1;
+    text-align: center;
 }
 
-.footer-section ul {
+.footer-nav-section h3 {
+    color: #666;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.footer-nav-section ul {
     list-style: none;
     padding: 0;
     margin: 0;
 }
 
-.footer-section ul li {
-    margin-bottom: 20px;
-}
-
-.footer-section ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-}
-
-/* Contact section */
-.contact-info {
-    margin-bottom: 30px;
-}
-
-.contact-info a {
-    color: white;
-    text-decoration: none;
-    font-size: 18px;
-    display: block;
+.footer-nav-section ul li {
     margin-bottom: 15px;
 }
 
-/* Social links */
+.footer-nav-section ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+/* Bottom Section */
+.footer-bottom {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 40px;
+}
+
+.footer-bottom > div {
+    flex: 1;
+    text-align: center;
+}
+
+.footer-bottom h3 {
+    color: #666;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
 .social-links {
     display: flex;
+    justify-content: center;
     gap: 15px;
 }
 
-.social-link {
-    width: 45px;
-    height: 45px;
+.social-links a {
+    width: 40px;
+    height: 40px;
     background: #333;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: white;
-    text-decoration: none;
+    color: #00a0c6;
     font-size: 20px;
+    transition: all 0.3s ease;
 }
 
-/* Footer copyright */
-.footer-bottom {
+.social-links a:hover {
+    background: #00a0c6;
+    color: white;
+}
+
+.contact-info a {
+    display: block;
+    color: white;
+    text-decoration: none;
+    margin-bottom: 10px;
+    font-size: 16px;
+}
+
+.copyright {
     text-align: center;
     color: #666;
     padding-top: 30px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255,255,255,0.1);
 }
 
 @media (max-width: 768px) {
@@ -135,100 +150,95 @@
         border-radius: 30px 30px 0 0;
     }
 
-    .footer-cta {
+    .top-section {
         flex-direction: column;
         text-align: center;
-        gap: 20px;
-        margin-bottom: 40px;
-        padding-bottom: 40px;
     }
 
-    .cta-content {
+    .footer-cta {
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
     }
 
-    .cta-content h2 {
+    .footer-cta h2 {
         font-size: 32px;
+        text-align: center;
     }
 
-    .footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
+    .footer-nav-section {
+        flex-direction: column;
+        gap: 40px;
     }
 
-    .social-links {
-        justify-content: center;
+    .footer-bottom {
+        flex-direction: column;
+        gap: 40px;
     }
 }
 </style>
 
 <footer class="site-footer">
     <div class="footer-container">
-        <!-- Top CTA Section -->
-        <div class="footer-cta">
-            <div class="company-name">
-                Eye to<br>
-                Eye<br>
-                Careers
-            </div>
-            <div class="cta-content">
+        <!-- Top Section -->
+        <div class="top-section">
+            <img src="{% static 'assets/logo-white.png' %}" alt="Logo" width="50">
+            <div class="footer-cta">
                 <h2>Ready to hire or get hired?</h2>
-                <a href="#" class="get-started-btn">
+                <a href="#" class="get-started">
                     Get started
-                    <span class="arrow">→</span>
+                    <span><i class="fas fa-arrow-right"></i></span>
                 </a>
             </div>
         </div>
 
-        <!-- Main Footer Grid -->
-        <div class="footer-content">
-            <!-- Jobs Section -->
-            <div class="footer-section">
+        <!-- Main Navigation -->
+        <div class="footer-nav-section">
+            <div>
                 <h3>JOBS</h3>
                 <ul>
                     <li><a href="#">Job Listings</a></li>
                     <li><a href="#">Job Seekers</a></li>
                 </ul>
             </div>
-
-            <!-- Links Section -->
-            <div class="footer-section">
+            <div>
                 <h3>LINKS</h3>
                 <ul>
                     <li><a href="#">Brokerage</a></li>
                     <li><a href="#">Blog</a></li>
                 </ul>
             </div>
-
-            <!-- Navigation Section -->
-            <div class="footer-section">
+            <div>
                 <h3>NAVIGATION</h3>
                 <ul>
-                    <li><a href="#">Why Eye to Eye Careers?</a></li>
+                    <li><a href="#">Why Eye to Eye Carees?</a></li>
                     <li><a href="#">Referral Bonus</a></li>
                 </ul>
             </div>
+        </div>
 
-            <!-- Contact Section -->
-            <div class="footer-section">
+        <!-- Bottom Section -->
+        <div class="footer-bottom">
+            <div>
+                <h3>FOLLOW US</h3>
+                <div class="social-links">
+                    <a href="#" style="text-decoration: none"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" style="text-decoration: none"><i class="fab fa-twitter"></i></a>
+                    <a href="#" style="text-decoration: none"><i class="fab fa-instagram"></i></a>
+                    <a href="#" style="text-decoration: none"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" style="text-decoration: none"><i class="fab fa-reddit-alien"></i></a>
+                </div>
+            </div>
+            <div>
                 <h3>CONTACT US</h3>
                 <div class="contact-info">
                     <a href="mailto:info@EyeToEyeCareers.com">info@EyeToEyeCareers.com</a>
                     <a href="tel:855-673-6393">855-673-6393</a>
                 </div>
-                <div class="social-links">
-                    <a href="#" class="social-link">F</a>
-                    <a href="#" class="social-link">T</a>
-                    <a href="#" class="social-link">I</a>
-                    <a href="#" class="social-link">L</a>
-                    <a href="#" class="social-link">R</a>
-                </div>
             </div>
         </div>
 
         <!-- Copyright -->
-        <div class="footer-bottom">
+        <div class="copyright">
             © 2024 Eye to Eye Careers
         </div>
     </div>
