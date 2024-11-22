@@ -67,6 +67,10 @@ def job_listings(request):
     featured_jobs = JobListing.objects.filter(is_active=True, featured=True)
     new_jobs = JobListing.objects.filter(is_active=True)
 
+    states = JobListing.objects.filter(is_active=True).values_list(
+        'location_state', flat=True
+    ).distinct().order_by('location_state')
+
     # Apply filters to both querysets
     if category:
         featured_jobs = featured_jobs.filter(category__slug=category)
@@ -84,7 +88,7 @@ def job_listings(request):
         'featured_jobs': featured_jobs,
         'new_jobs': new_jobs_page,
         'categories': Category.objects.filter(is_active=True),
-        'states': JobListing.objects.values_list('location_state', flat=True).distinct(),
+        'states': states,
         'view_type': view_type,
         'current_filters': {
             'category': category,
