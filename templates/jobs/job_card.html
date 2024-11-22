@@ -17,23 +17,27 @@
     </div>
     <div class="card-footer">
         <a href="{{ job.application_url }}" 
-       class="see-more" 
-       style="color: {{ job.category.color_code }}"
-       target="_blank" 
-       rel="noopener noreferrer">
-        See more...
-    </a>
-       <a href="{{ job.application_url }}" 
-       class="apply-button"
-       style="--button-color: {{ job.category.color_code }}"
-       target="_blank" 
-       rel="noopener noreferrer">
-        APPLY NOW
-    </a>
+           class="see-more" 
+           style="color: {{ job.category.color_code }}"
+           target="_blank" 
+           rel="noopener noreferrer">
+            See more...
+        </a>
+        <a href="{{ job.application_url }}" 
+           class="apply-button"
+           style="--button-color: {{ job.category.color_code }}"
+           target="_blank" 
+           rel="noopener noreferrer">
+            APPLY NOW
+        </a>
     </div>
 </div>
 
 <style>
+* {
+    box-sizing: border-box;
+}
+
 .job-card {
     border: 2px solid;
     border-radius: 15px;
@@ -43,12 +47,15 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-    min-height: 300px; /* Minimum height to prevent too small cards */
+    min-height: 300px;
+    box-sizing: border-box;
 }
 
 .job-content {
     padding: 25px 25px 0 25px;
     flex-grow: 1;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .job-title {
@@ -115,19 +122,23 @@
     gap: 15px;
     background: white;
     border-radius: 0 0 13px 13px;
+    box-sizing: border-box;
+    width: 100%;
 }
 
 .see-more {
     text-decoration: none;
     font-size: clamp(14px, 3vw, 16px);
+    padding: 5px 0;
+    box-sizing: border-box;
 }
 
 .apply-button {
-    padding: clamp(12px, 3vw, 15px) clamp(30px, 5vw, 45px);
+    padding: 15px 45px;
     border-radius: 50px;
     color: white;
     text-decoration: none;
-    font-size: clamp(16px, 3vw, 18px);
+    font-size: 18px;
     font-weight: 600;
     background-color: var(--button-color);
     border: 2px solid var(--button-color);
@@ -135,6 +146,7 @@
     text-transform: uppercase;
     text-align: center;
     white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .apply-button:hover {
@@ -151,20 +163,27 @@
 @media (max-width: 768px) {
     .job-content {
         padding: 20px 20px 0 20px;
+        width: 100%;
     }
 
     .card-footer {
-        padding: 15px 20px;
+        padding: 15px;
         flex-direction: column;
         align-items: stretch;
+        width: 100%;
     }
 
     .apply-button {
         width: 100%;
+        padding: 12px 20px;
+        font-size: 16px;
     }
 
     .see-more {
         text-align: center;
+        width: 100%;
+        display: block;
+        margin-bottom: 10px;
     }
 }
 
@@ -174,7 +193,11 @@
     }
 
     .card-footer {
-        padding: 15px;
+        padding: 12px;
+    }
+
+    .apply-button {
+        padding: 10px 15px;
     }
 }
 </style>
