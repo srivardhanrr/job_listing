@@ -8,13 +8,13 @@ var simplemaps_usmap_mapdata={
     popups: "detect",
 
     //State defaults
-    state_description: "",
-    state_color: "#0c99b7",
+    state_description: "State Description",
+    state_color: "#00a0c6",
     state_hover_color: "#ffd600",
     state_url: "",
     border_size: 1.5,
     all_states_inactive: "no",
-    all_states_zoomable: "no",
+    all_states_zoomable: "yes",
 
     //Location defaults
     location_description: "Add location markers using latitude and longitude!",
@@ -60,7 +60,7 @@ var simplemaps_usmap_mapdata={
     //Advanced settings
     div: "map",
     auto_load: "yes",
-    url_new_tab: "yes",
+    url_new_tab: "no",
     images_directory: "/static/lib/simplemaps/map_images/",
     fade_time: 0.1,
     import_labels: "no",
@@ -224,105 +224,71 @@ var simplemaps_usmap_mapdata={
       name: "Idaho"
     },
     GU: {
-      name: "Guam",
-      hide: "yes"
+      name: "Guam"
     },
     VI: {
-      name: "Virgin Islands",
-      hide: "yes"
+      name: "Virgin Islands"
     },
     PR: {
-      name: "Puerto Rico",
-      hide: "yes"
+      name: "Puerto Rico"
     },
     MP: {
-      name: "Northern Mariana Islands",
-      hide: "yes"
+      name: "Northern Mariana Islands"
     },
     AS: {
-      name: "American Samoa",
-      hide: "yes"
+      name: "American Samoa"
     }
   },
   locations: {},
   labels: {
     NH: {
-      parent_id: "NH",
       x: "932",
       y: "183",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     VT: {
-      parent_id: "VT",
       x: "883",
       y: "243",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     RI: {
-      parent_id: "RI",
       x: "932",
       y: "273",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     NJ: {
-      parent_id: "NJ",
       x: "883",
       y: "273",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     DE: {
-      parent_id: "DE",
       x: "883",
       y: "303",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     MD: {
-      parent_id: "MD",
       x: "932",
       y: "303",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     DC: {
-      parent_id: "DC",
       x: "884",
       y: "332",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     MA: {
-      parent_id: "MA",
       x: "932",
       y: "213",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     CT: {
-      parent_id: "CT",
       x: "932",
       y: "243",
-      pill: "yes",
-      width: 45,
-      display: "all"
+      width: 45
     },
     HI: {
-      parent_id: "HI",
       x: 305,
-      y: 565,
-      pill: "yes"
+      y: 565
     },
     AK: {
       parent_id: "AK",
