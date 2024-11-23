@@ -116,8 +116,7 @@
 
         .search-bar {
             background-color: #00a0c6;
-            {#border-radius: 10px;#}
-            padding: 15px 0;
+        {#border-radius: 10px;#} padding: 15px 0;
             width: 100%;
         }
 
@@ -385,8 +384,9 @@
         /* Info Text */
         .info-text {
             text-align: center;
+            font-weight: bold;
             margin: 20px 0;
-            font-size: 22px;
+            font-size: 27px;
             color: #000000;
         }
 
@@ -396,6 +396,10 @@
         }
 
         @media (max-width: 768px) {
+            .info-text {
+                font-size: 18px;
+            }
+
             .search-container {
                 flex-direction: column;
             }
@@ -521,53 +525,53 @@
         <div id="map"></div>
     </div>
 </div>
-    <!-- Search Bar -->
-    <div class="search-bar">
-        <div class="search-container">
-            <div class="menu-section">
-                <div class="view-controls">
+<!-- Search Bar -->
+<div class="search-bar">
+    <div class="search-container">
+        <div class="menu-section">
+            <div class="view-controls">
 
-                    <button type="button"
-                            onclick="setView('grid')"
-                            class="view-button {% if view_type == 'grid' %}active{% endif %}"
-                            title="Grid View">
-                        <img style="width: 30px" src="{% static 'assets/grid-icon.png' %}"/>
-                    </button>
+                <button type="button"
+                        onclick="setView('grid')"
+                        class="view-button {% if view_type == 'grid' %}active{% endif %}"
+                        title="Grid View">
+                    <img style="width: 30px" src="{% static 'assets/grid-icon.png' %}"/>
+                </button>
 
-                    <!-- List View Button -->
-                    <button type="button"
-                            onclick="setView('list')"
-                            class="view-button {% if view_type == 'list' %}active{% endif %}"
-                            title="List View">
-                        <img style="width: 30px" src="{% static 'assets/list-icon.png' %}"/>
-                    </button>
-                </div>
-                <a href="#" class="job-alerts">Job Alerts</a>
+                <!-- List View Button -->
+                <button type="button"
+                        onclick="setView('list')"
+                        class="view-button {% if view_type == 'list' %}active{% endif %}"
+                        title="List View">
+                    <img style="width: 30px" src="{% static 'assets/list-icon.png' %}"/>
+                </button>
             </div>
-
-            <form method="GET" class="search-inputs" id="searchForm">
-                <select name="category" class="search-select" id="doctorSpecialty">
-                    <option value="">Doctor Specialty</option>
-                    {% for category in categories %}
-                        <option value="{{ category.slug }}"
-                                {% if current_filters.category == category.slug %}selected{% endif %}>
-                            {{ category.name }}
-                        </option>
-                    {% endfor %}
-                </select>
-                <select name="state" class="search-select" id="stateSelect">
-                    <option value="">Choose a State</option>
-                    {% for state in states %}
-                        <option value="{{ state }}"
-                                {% if current_filters.state == state %}selected{% endif %}>
-                            {{ state }}
-                        </option>
-                    {% endfor %}
-                </select>
-                <button type="submit" class="search-button">Search</button>
-            </form>
+            <a href="#" class="job-alerts">Job Alerts</a>
         </div>
+
+        <form method="GET" class="search-inputs" id="searchForm">
+            <select name="category" class="search-select" id="doctorSpecialty">
+                <option value="">Doctor Specialty</option>
+                {% for category in categories %}
+                    <option value="{{ category.slug }}"
+                            {% if current_filters.category == category.slug %}selected{% endif %}>
+                        {{ category.name }}
+                    </option>
+                {% endfor %}
+            </select>
+            <select name="state" class="search-select" id="stateSelect">
+                <option value="">Choose a State</option>
+                {% for state in states %}
+                    <option value="{{ state }}"
+                            {% if current_filters.state == state %}selected{% endif %}>
+                        {{ state }}
+                    </option>
+                {% endfor %}
+            </select>
+            <button type="submit" class="search-button">Search</button>
+        </form>
     </div>
+</div>
 <div class="container">
     <!-- Info Text -->
     <div class="info-text">
@@ -606,11 +610,6 @@
                     <span class="current">{{ num }}</span>
                 {% else %}
                     <a href="?page=
-
-
-
-
-
                             {{ num }}{% if current_filters.category %}&category={{ current_filters.category }}{% endif %}{% if current_filters.state %}&state={{ current_filters.state }}{% endif %}">{{ num }}</a>
                 {% endif %}
             {% endfor %}
