@@ -5,6 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Current OD & MD Job Opportunities</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          rel="stylesheet">
     <script src="{% static 'map/mapdata.js' %}"></script>
     <script src="{% static 'map/usmap.js' %}"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -16,6 +24,7 @@
         }
 
         body {
+            font-family: "Poppins", sans-serif;
             margin-top: 60px;
             background: #fff;
             line-height: 1.6;
@@ -52,6 +61,7 @@
         }
 
         .start-applying {
+            font-family: "Poppins", sans-serif;
             display: inline-block;
             background-color: #00a0c6;
             color: white;
@@ -150,6 +160,7 @@
         }
 
         .job-alerts {
+                        font-family: "Poppins", sans-serif;
             background-color: transparent;
             border: 2px solid white;
             color: white;
@@ -382,11 +393,13 @@
         }
 
         /* Info Text */
-        .info-text {
+        .info-text
+        {
+            font-family: "Poppins", sans-serif;
             text-align: center;
             font-weight: bold;
             margin: 20px 0;
-            font-size: 27px;
+            font-size: 25px;
             color: #000000;
         }
 
@@ -485,6 +498,7 @@
 
         .section-title {
             font-size: 40px;
+            font-family: "Poppins", sans-serif; 
             margin: 40px 0 20px;
             padding-left: 20px;
             max-width: 1200px;
@@ -513,11 +527,11 @@
 </head>
 <body>
 {% include 'jobs/header.html' %}
-<div class="container">
+<div class="container" style="font-family: 'Poppins', sans-serif;">
     <!-- Header -->
-    <div class="header">
-        <h1>Current OD & MD Job Opportunities</h1>
-        <div class="subtitle">THROUGHOUT THE USA + CANADA</div>
+    <div class="header" >
+        <h1 style="font-family: 'Poppins', sans-serif;">Current OD & MD Job Opportunities</h1>
+        <div class="subtitle" style="font-family: 'Poppins', sans-serif;">THROUGHOUT THE USA + CANADA</div>
         <a href="#" class="start-applying">Start Applying</a>
     </div>
 
@@ -526,7 +540,7 @@
     </div>
 </div>
 <!-- Search Bar -->
-<div class="search-bar">
+<div class="search-bar" style="font-family: 'Poppins', sans-serif;">
     <div class="search-container">
         <div class="menu-section">
             <div class="view-controls">
@@ -546,12 +560,12 @@
                     <img style="width: 30px" src="{% static 'assets/list-icon.png' %}"/>
                 </button>
             </div>
-            <a href="#" class="job-alerts">Job Alerts</a>
+            <a href="#"  class="job-alerts">Job Alerts</a>
         </div>
 
         <form method="GET" class="search-inputs" id="searchForm">
             <select name="category" class="search-select" id="doctorSpecialty">
-                <option value="">Doctor Specialty</option>
+                <option value="" >Doctor Specialty</option>
                 {% for category in categories %}
                     <option value="{{ category.slug }}"
                             {% if current_filters.category == category.slug %}selected{% endif %}>
@@ -568,7 +582,7 @@
                     </option>
                 {% endfor %}
             </select>
-            <button type="submit" class="search-button">Search</button>
+            <button type="submit" style="font-family: 'Poppins', sans-serif;" class="search-button">Search</button>
         </form>
     </div>
 </div>
@@ -610,6 +624,9 @@
                     <span class="current">{{ num }}</span>
                 {% else %}
                     <a href="?page=
+
+
+
                             {{ num }}{% if current_filters.category %}&category={{ current_filters.category }}{% endif %}{% if current_filters.state %}&state={{ current_filters.state }}{% endif %}">{{ num }}</a>
                 {% endif %}
             {% endfor %}
