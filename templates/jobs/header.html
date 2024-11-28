@@ -1,7 +1,7 @@
 {% load static %}
 <style>
 .site-header {
-    padding: 8px 30px;
+    padding: 5px 30px;
     padding-left: 0px;
     background: white;
     position: fixed;
@@ -13,16 +13,18 @@
 }
 
 .header-container {
-    max-width: 1520px;
+    max-width: 1560px;
     margin: 0 auto;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: center;
+    position: relative;
 }
 
 .logo {
     height: 67px;
     width: auto;
+    margin-right: auto;
 }
 
 .logo img {
@@ -33,7 +35,7 @@
 .nav-menu {
     display: flex;
     align-items: center;
-    gap: 45px;
+    gap: 47px;
 }
 
 .nav-link {
@@ -41,7 +43,7 @@
     text-decoration: none;
     color: #000000;
     font-size: 17px;
-    font-weight: 500;
+    font-weight: 550;
     position: relative;
     padding: 5px 0;
 }
@@ -60,15 +62,17 @@
 }
 
 .contact-button {
+    font-family: 'Inter', sans-serif;
     background: #ff8a00;
     color: white;
-    padding: 10px 25px;
+    padding: 4px 20px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 850;
     font-size: 20px;
     white-space: nowrap;
     transition: 0.3s;
+    margin-left: auto;
 }
 
 .contact-button:hover {
@@ -161,9 +165,9 @@
             <a href="https://testing.meetbhingradiya.in/learn" class="nav-link">LEARN</a>
             <a href="/" class="nav-link active">JOB LISTINGS</a>
             <a href="https://testing.meetbhingradiya.in/brokerage" class="nav-link">BROKERAGE</a>
-            <a href="https://testing.meetbhingradiya.in/" class="contact-button">CONTACT US</a>
         </nav>
 
+        <a href="https://testing.meetbhingradiya.in/" class="contact-button">CONTACT US</a>
         <button class="mobile-menu-button">☰</button>
     </div>
 
