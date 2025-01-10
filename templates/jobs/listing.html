@@ -531,8 +531,8 @@
     <!-- Header -->
     <div class="header" >
         <h1 style="font-family: 'Poppins', sans-serif;">Current OD & MD Job Opportunities</h1>
-        <div class="subtitle" style="font-family: 'Poppins', sans-serif;">THROUGHOUT THE USA + CANADA</div>
-        <a href="#" class="start-applying">Start Applying</a>
+        <div class="subtitle" style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 34px">THROUGHOUT THE USA + CANADA</div>
+        <a href="#" style="font-size: 24px; font-weight: 600" class="start-applying">Start Applying</a>
     </div>
 
     <div style="max-width:780px;margin:auto;">
@@ -564,8 +564,8 @@
         </div>
 
         <form method="GET" class="search-inputs" id="searchForm">
-            <select name="category" class="search-select" id="doctorSpecialty">
-                <option value="" >Doctor Specialty</option>
+            <select style="font-family: 'Poppins',serif;" name="category" class="search-select" id="doctorSpecialty">
+                <option style="font-family: 'Poppins',serif;" value="" >Doctor Specialty</option>
                 {% for category in categories %}
                     <option value="{{ category.slug }}"
                             {% if current_filters.category == category.slug %}selected{% endif %}>
@@ -573,7 +573,7 @@
                     </option>
                 {% endfor %}
             </select>
-            <select name="state" class="search-select" id="stateSelect">
+            <select style="font-family: 'Poppins',serif;" name="state" class="search-select" id="stateSelect">
                 <option value="">Choose a State</option>
                 {% for state in states %}
                     <option value="{{ state }}"
@@ -582,13 +582,13 @@
                     </option>
                 {% endfor %}
             </select>
-            <button type="submit" style="font-family: 'Poppins', sans-serif;" class="search-button">Search</button>
+            <button type="submit" style="font-family: 'Poppins', sans-serif; font-weight: 800" class="search-button">Search</button>
         </form>
     </div>
 </div>
 <div class="container">
     <!-- Info Text -->
-    <div class="info-text">
+    <div style="font-family: 'Poppins',serif; font-weight: 300; font-size: 30px" class="info-text">
         Search results may not reflect all available positions. If you don't see your location,
         please <a href="#">contact us</a> directly to see more job listings.
     </div>
